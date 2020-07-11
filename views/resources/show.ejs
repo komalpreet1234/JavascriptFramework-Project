@@ -1,0 +1,39 @@
+<!--
+  Step 1: This is your descretion how you would like to display data,
+  but you must list display only one document based on the passed ID.
+-->
+<%- include ('../partials/header') %>
+
+<div class="container my-5">
+  <div class="card my-5">
+      <div class="card my-5">
+        <div class="card-header">
+          <h2 class="card-title">
+            <%= resource.Title %>
+          </h2>
+        </div>
+
+        <div class="card-body">
+        <h4><%= resource.Subject %></h4>
+          <p class="card-text">
+            <%= resource.Content %>.
+		  </p>
+        </div>
+
+        <div class="card-footer text-muted">
+          <a style="border: 2px solid black; width: 100%; color: black; padding: 5px;" href="/resources/<%= resource.id %>/edit"><i class="fa fa-edit">&nbsp;</i>Update Note</a>
+          <br><br>
+          <form class="form-inline" action="/resources/delete" method="post" onsubmit="return confirm('Are you sure you want to cancel your reservation?');">
+            <input type="hidden" value="<%= resource.id %>" name="id">
+            <button class="delete" type="submit" style="width: 15%;">
+              <i class="fa fa-trash">&nbsp;</i>
+              Delete This Note
+            </button>
+          </form>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<%- include ('../partials/footer') %>

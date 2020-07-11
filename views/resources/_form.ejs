@@ -1,0 +1,26 @@
+<!--
+  Step 1: The form must be sharable between the new and edit views.
+-->
+
+<form action="<%= (typeof actionPath === 'undefined') ? '/resources' : actionPath %>", method="POST">
+  <% if (typeof actionPath !== 'undefined') { %>
+    <input type="hidden" name="id" value="<%= formData.id %>">
+  <% } %>
+
+  <div class="form-group">
+    <label for="Title">Title Of Note</label>
+    <input type="text" name="Title" class="form-control" value="<%= formData.Title %>" required/>
+  </div>
+  <div class="form-group">
+    <label for="Subject">Subject Of Note</label>
+    <input type="text" name="Subject" class="form-control" value="<%= formData.Subject %>" required/>
+  </div>
+  <div class="form-group">
+    <label for="Content">Content Of Note</label>
+    <input type="text" name="Content" class="form-control" value="<%= formData.Content %>" required/>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-dark">Submit</button>
+  </div>
+</form>
